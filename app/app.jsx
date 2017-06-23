@@ -4,14 +4,18 @@ var {Provider} = require('react-redux');
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
 var TodoApp = require('TodoApp');
-
 var actions =require('actions');
 var store = require('configureStore').configure();
+var TodoApi = require('TodoAPI');
 
 store.subscribe(() => {
+  var state = store.getState();
   console.log('New state', store.getState());
+  TodoApi.setTodos(state.todos);
 });
 
+var initialTodos = TodoApi.getTodos();
+store.dispatch(actions.addTodos(initialTodos));
 
 //Load foundation
 $(document).foundation();
