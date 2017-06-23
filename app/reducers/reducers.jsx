@@ -39,14 +39,14 @@ export var todosReducer = (state = [], action)=>{
         if(todo.id===action.id){
         var nextCompleted = !todo.completed;
 
-        }
-
-
-      return {
+        return {
         ...todo,
         completed: nextCompleted,
-        completedAt:(nextCompleted===undefined) ? moment().unix:undefined
-      };
+        completedAt: nextCompleted ? moment().unix():undefined
+        };
+      } else {
+        return todo;
+      }
     });
       default:
         return state;
