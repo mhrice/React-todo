@@ -22,14 +22,17 @@ firebaseRef.set({
     age: 20
   }
 
+
+});
+var todosRef = firebaseRef.child('todos');
+
+todosRef.on('child_added', (snapshot)=>{
+  console.log('CHILD ADDED', snapshot.key, snapshot.val())
 });
 
-firebaseRef.child('user').on('value', (snapshot)=>{
-  console.log("UPDATE", snapshot.val());
+var newTodoRef = todosRef.push({
+  text: 'Eat'
 });
-firebaseRef.child('user').update({
-  name: 'Mike'
-});
-firebaseRef.child('app').update({
-  name: 'TodoApplication'
+var twoTodoRef = todosRef.push({
+  text: 'Sleep'
 });
