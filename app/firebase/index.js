@@ -3,12 +3,12 @@ import firebase from 'firebase';
 
 try{
   var config = {
-     apiKey: "AIzaSyBFz6mhCYSDRiDUy_MnuG9qrWV_hzwHOeE",
-     authDomain: "ricetodoapp.firebaseapp.com",
-     databaseURL: "https://ricetodoapp.firebaseio.com",
-     projectId: "ricetodoapp",
-     storageBucket: "ricetodoapp.appspot.com",
-     messagingSenderId: "827806894110"
+     apiKey: process.env.API_KEY,
+     authDomain: process.env.AUTH_DOMAIN,
+     databaseURL: process.env.DATABASE_URL,
+     projectId: process.env.PROJECTID,
+     storageBucket: process.env.STORAGE_BUCKET,
+  
    };
    firebase.initializeApp(config);
 } catch(e) {
