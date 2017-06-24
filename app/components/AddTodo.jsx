@@ -3,10 +3,6 @@ var {connect} = require('react-redux');
 var actions = require('actions');
 
 export var AddTodo = React.createClass({
-  propTypes: {
-    onSubmit: React.PropTypes.func.isRequired
-  },
-
   handleClick: function(e){
     var {dispatch} = this.props
     e.preventDefault();
