@@ -8,7 +8,7 @@ try{
      databaseURL: process.env.DATABASE_URL,
      projectId: process.env.PROJECTID,
      storageBucket: process.env.STORAGE_BUCKET,
-  
+
    };
    firebase.initializeApp(config);
 } catch(e) {
@@ -16,5 +16,6 @@ try{
 
 }
 
+export var githubProvider = new firebase.auth.GithubAuthProvider();
 export var firebaseRef = firebase.database().ref();
 export default firebase;
