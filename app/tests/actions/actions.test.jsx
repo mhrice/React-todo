@@ -133,4 +133,26 @@ describe('Actions', () =>{
 
 
     });
+    describe('Tests with login/logout', ()=>{
+    it('should login and record login id', ()=>{
+
+      var action = {
+        type: 'LOGIN',
+        uid: '123',
+      };
+        var res = actions.login(action.uid);
+        expect(res).toEqual(action);
+
+      });
+    it('should logout', ()=>{
+
+      var action = {
+        type: 'LOGOUT',
+      };
+        var res = actions.logout();
+        expect(res).toEqual(action);
+
+      });
+
   });
+});
