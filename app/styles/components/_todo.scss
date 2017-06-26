@@ -4,6 +4,7 @@
   display: flex;
   padding: 1rem;
   transition: background .3s ease;
+  justify-content: space-between;
 
   p, input{
     margin: 0;
@@ -25,5 +26,19 @@
   p, .todo-subtext {
     color: $light-color;
     text-decoration: line-through;
+    margin-right: 0em
   }
+}
+.todo_x {
+
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 1em;
+  
+  margin-left: 6em;;
+  border-radius: 100%;
+
+  &:hover {
+    color: $red;
+  }
+
 }

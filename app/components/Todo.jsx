@@ -22,17 +22,21 @@ export class Todo extends React.Component{
       return message+moment.unix(timestamp).format('MMM Do YYYY @ h:mm a');
     };
     return(
-      <div className = {todoClassName} onClick={()=>{
-      dispatch(actions.startToggleTodo(id, !completed));
-      }}>
+      <div className = {todoClassName}>
       <div>
-        <input type="checkbox" checked={completed}/>
+        <input type="checkbox" checked={completed} onClick={()=>{
+        dispatch(actions.startToggleTodo(id, !completed));
+        }}/>
         </div>
         <div>
           <p>{text} </p>
           <p className="todo__subtext">{renderDate()}</p>
         </div>
-
+        <div className="todo_x" onClick={()=>{
+          dispatch(actions.startDeleteTodo(id));
+        }}>
+          X
+        </div>
       </div>
     )
   }
