@@ -1,10 +1,20 @@
-var React = require('react');
-var {connect} = require('react-redux');
-var actions = require('actions');
+import React from 'react';
+import { PropTypes } from 'react'
+import {connect} from 'react-redux';
+import * as actions from 'actions';
 
-export var AddTodo = React.createClass({
-  handleClick: function(e){
-    var {dispatch} = this.props
+
+
+export class AddTodo extends React.Component {
+
+  constructor(props){
+    super(props);
+  this.handleClick =  this.handleClick.bind(this);
+
+  }
+
+  handleClick(e){
+    var {dispatch} = this.props;
     e.preventDefault();
     var todo = this.refs.todo.value;
     if(todo.length>0){
@@ -14,8 +24,9 @@ export var AddTodo = React.createClass({
     else{
       this.refs.todo.focus();
     }
-  },
-  render: function(){
+  };
+
+  render(){
       return(
       <div className="container__footer">
         <form ref="form" onSubmit ={this.handleClick} className="countdown-form">
@@ -24,8 +35,10 @@ export var AddTodo = React.createClass({
         </form>
       </div>
     );
-  }
+  };
 
-});
+};
 
-export default connect()(AddTodo);
+export default connect(
+
+)(AddTodo);

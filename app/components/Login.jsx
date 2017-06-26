@@ -1,16 +1,22 @@
-var React = require('react');
+import React from 'react';
 import * as redux from 'react-redux';
 
 import * as actions from 'actions';
 
-export var Login = React.createClass({
+export class Login extends React.Component{
+
+constructor(props){
+  super(props);
+  this.onLogin = this.onLogin.bind(this);
+}
+
 onLogin(){
   var {dispatch} = this.props;
 
   dispatch(actions.startLogin())
-},
+}
 
-  render: function(){
+  render(){
     return(
       <div>
         <h1 className='page-title'>Todo App</h1>
@@ -30,5 +36,5 @@ onLogin(){
     );
   }
 
-});
+};
 export default redux.connect()(Login);

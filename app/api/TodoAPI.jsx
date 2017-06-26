@@ -6,12 +6,12 @@ module.exports ={
 
       if (!showCompleted) {
       filteredTodos = filteredTodos.filter((todo) => {
-        return !todo.completed;
+        return !todo.completed || showCompleted;
       });
     }//Filter by searchText
     filteredTodos = filteredTodos.filter((todo)=>{
       if(searchText.length!==0){
-        if(todo.text.toLowerCase().indexOf(searchText)>=0){
+        if(todo.text.toLowerCase().indexOf(searchText.toLowerCase())>=0){
           return true;
         }
         return false;
